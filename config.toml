@@ -1,5 +1,0 @@
-baseURL = "https://arushirai1.github.io/personal-site"
-languageCode = "en-us"
-title = "This is Arushi Rai"
-theme = "ananke"
-publishdir = "public"
