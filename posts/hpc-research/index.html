@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>This is Arushi Rai  | Hpc Research</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Hpc Research" />
+<meta property="og:description" content="I have always been interested in learning about cutting edge technologies and enjoy applying logic to solve problems. During the summer and fall of 2017, I learned about high performance computing and modified CQSim, the HPC queue simulator.
+Project Learning and Exploring Cobalt &ndash; the HPC Job Management Suite
+Weekly Updates Update One (7-17-17) I spent this week getting familiar with Cobalt&rsquo;s administrative and user commands. I have almost finished installing the simulation environment on a CentOS 6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/hpc-research/" />
+<meta property="article:published_time" content="2017-12-18T14:18:24-05:00" />
+<meta property="article:modified_time" content="2017-12-18T14:18:24-05:00" />
+<meta itemprop="name" content="Hpc Research">
+<meta itemprop="description" content="I have always been interested in learning about cutting edge technologies and enjoy applying logic to solve problems. During the summer and fall of 2017, I learned about high performance computing and modified CQSim, the HPC queue simulator.
+Project Learning and Exploring Cobalt &ndash; the HPC Job Management Suite
+Weekly Updates Update One (7-17-17) I spent this week getting familiar with Cobalt&rsquo;s administrative and user commands. I have almost finished installing the simulation environment on a CentOS 6.">
+
+
+<meta itemprop="datePublished" content="2017-12-18T14:18:24-05:00" />
+<meta itemprop="dateModified" content="2017-12-18T14:18:24-05:00" />
+<meta itemprop="wordCount" content="2386">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hpc Research"/>
+<meta name="twitter:description" content="I have always been interested in learning about cutting edge technologies and enjoy applying logic to solve problems. During the summer and fall of 2017, I learned about high performance computing and modified CQSim, the HPC queue simulator.
+Project Learning and Exploring Cobalt &ndash; the HPC Job Management Suite
+Weekly Updates Update One (7-17-17) I spent this week getting familiar with Cobalt&rsquo;s administrative and user commands. I have almost finished installing the simulation environment on a CentOS 6."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://example.org/" class="f3 fw2 hover-white no-underline white-90 dib">
+      This is Arushi Rai
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Hpc Research</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-12-18T14:18:24-05:00">December 18, 2017</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>I have always been interested in learning about cutting edge technologies and enjoy applying logic to solve problems. During the summer and fall of 2017, I learned about high performance computing and modified CQSim, the HPC queue simulator.</p>
+
+<h2 id="project">Project</h2>
+
+<p>Learning and Exploring Cobalt &ndash; the HPC Job Management Suite</p>
+
+<h2 id="weekly-updates">Weekly Updates</h2>
+
+<h3 id="update-one-7-17-17">Update One (7-17-17)</h3>
+
+<p>I spent this week getting familiar with Cobalt&rsquo;s administrative and user commands. I have almost finished installing the simulation environment on a CentOS 6.4 VM based on VirtualBox. Alongside reading about the Cobalt platform, I read the following paper: Fault-Aware, Utility-Based Job Scheduling on Blue Gene/P systems. I learned about the various utlitily functions that can optimize the job selection process, as well as the performances gains from fault-aware job allocation. I found it interesting that the basic FCFS beats all of the proposed smart utility functions when it comes to large, time consuming jobs. However, the real efficiency that is derived from smart utility functions is by cutting down the average response rate for shorter jobs. This paper also explored QSim and Blue Gene systems briefly which helped my understanding of how the elements depend on each other.</p>
+
+<h3 id="update-two-7-24-17">Update Two (7-24-17)</h3>
+
+<p>This week I had read three papers: Utilization and Predictability in Scheduling in the IBM SP2 with Backfilling (TPDS 61), Improving Batch Scheduling on Blue Gene/Q by relaxing 5D Torus Network Allocation Constraints (IPDPS 15), and Experience and Practice of Batch Scheduling on Leadership Supercomputers at Argonne. The main focus of this week was exploring scheduling techniques and finally knowing the scheduling policy in use at Argonne.
+The first paper, TPDS 61 was published over 20 years ago and aims to create a more stable and predictable scheduling system through conservative backfilling. It argues that agressive (EASY) backfilling does not improve predictability because jobs behind the first job can hypothetically have an indefinite wait-time. When a running job terminates earlier than expected, you retain the originl schedule but compress it. This point is important because a combination or a form of this method could be used with the dragonfly network where the estimated run time is highly unpredicatable.
+The second paper, IPDPS 15 describes a couple of allocation mechanisms to externally allocate network resources to applications: MeshSched and CFCA (Contention-free and communication aware.
+I have also been exploring the Cobalt code base and alongside reading the code I am refreshing and adding to my knowledge of Python.
+The final paper explores some challenges that are present moving forward in Argonne:</p>
+
+<pre><code>1. For some data collection instruments, having on demand computation capabilities would be helpful. Explore task-switching/time-sharing techniques to satisfy this immediate demand.
+2. How to prepare the parallel machines at Argonne to deal with queue depth of millions, because of pushes by the government for HTC workload support.
+</code></pre>
+
+<h3 id="update-three-7-31-17">Update Three (7-31-17)</h3>
+
+<p>I read the following papers assigned by Professor Lan.</p>
+
+<pre><code>1. Watch Out for the Bully! Job Interference Study on Dragonfly Network: This paper studied the effects of random job placement coupled with adaptive routing on individual jobs. It found that less communication intensive applications were being affected negatively. Essentially, the goal is to minimize the worst case of less comunication intensive applications, but keep the performance of communication intensive applications. The method which was tested was a hybrid-random-contiguous-adaptive allocation. The less communication intensive applications would be placed contiguously and the rest would be allocated randomly, load balancing. While this method showed some improvement, the performance of less communication intesive apps are still significantly affected. This is why minimizing the worst case of less communication intensive applications still remains an important task.
+2. Job Scheduling HPC Clusters: This report established the two classes of clusters: high throughput computing (HTC) clusters and high performance computing (HPC) clusters. For HTC clusters reducing load imbalance to maximize the number of jobs completed are critical goals, whereas minimizing communication overhead is a consideration that must be taken with any HPC cluster. Essentially because there is active communication taking place between nodes in HPC clusters, communication speed is vital because it directly affects the performance of the application and the time in which the job is completed. This report further details the general architecture of HPC clusters and the various terminologies to explain the metrics and approaches for job scheduling.
+</code></pre>
+
+<p>Reading these two papers raised some questions on the dragonfly architecture itself and Application Placement Scheduler (ALPS) which is the internal scheduler used on Cray platforms. This led me to read the original paper on the dragonfly topology. This clarified the overall architecture, but I still need to know how exactly this is applied on the Theta system.Lastly, I learned that APLS is used to create a level of abstraction between the an external resource management model, like Cobalt, and the underlying hardware and operating system architecture.
+I also read the user guide on Theta and MIRA, mainly focusing on the former.</p>
+
+<h3 id="update-four-8-7-17">Update Four (8-7-17)</h3>
+
+<p>Data center scheduling is done without knowing the duration in advanced, so a hybrid scheduling method that is both suitable for HPC clusters and utilizes the unknown duration-based scheduling components of data center scheduling could help improve scheduling efficiency. These are the blog article and papers I was assigned this week: (blog post) The evolution of cluster scheduler architectures: There are five types of scheduler architectures on HTC clusters: monolithic, two-level scheduling (involves partitioning), shared-state architectures, fully distributed architectures, and hybrid architectures which combine fully distributed with monolithic or shared state designs. Essentially using a distributed model for short tasks and low priority batch workloads and using a centralized (monolithic or shared state?) for the rest.
+By reading the user guide on Theta, “Early Evaluation of the Cray XC40 Xeon Phi System ‘Theta’ at Argonne, and the “Validation Study of CODES dragonfly network model against Theta ALCF system” I gained a better understanding of the capabilities and limitations of Theta. However, I have not pieced together how I could utilize this in terms of building an appropriate scheduler, this remains a key focus of this following week. Though it has a lot of useful information for when I build an experiment. Because of the level of variability with respect to MPI performance can be significant when there is sudden contention caused by an interfering job, many data points should be run to ensure statistical accuracy. I also thought core specialization was an interesting idea. Also running more than one thread per core, does not improve performance, and degrades performance after two. Lastly, the final paper showed the effect of scale on the benchmark tests and also reached the conclusion that the CODES simulation is largely accurate. However, I noticed that the Bully paper (I read last week) did not have the same configurations as this Theta system, but I guess it doesn’t matter since it just affects latency which I believe is linear.</p>
+
+<h3 id="update-five-8-28-17">Update Five (8-28-17)</h3>
+
+<p>This week I explored papers about CODES, using machine learning to cut error in underestimating times, and just in general various papers and slides from the CODES workshop. <a href="http://ieeexplore.ieee.org/document/8048966/">Trade-off between Prediction Accuracy and Underestimation Rate in Job Runtime Estimates</a> takes advantage of the repetitive nature of job submission in HPC clusters, meaning the same jobs are submitted repeatedly. This is an example of a proper use of machine learning methods being applied to HPC scheduling. There is also the problem of overestimation which is at more than twice the actual running time for nearly 40% of the jobs run. Nearly half the jobs exit abnormally meaning that the user underestimated the time and the resources essentially went to waste. However, current techniques overlook this factor and emphasize lowering the overestimation rate instead. This paper uses the Tobin Model to predict runtime of jobs which means that the regression model can set a threshold on the historical accuracy of the data and adjust it appropriately this helps with lowering the underestimation rate. There is relative improvement in the system utilization, overall accuracy (not compared to other ML techniques), and the overhead is low at only a second at every scheduling turn. This paper points out that the job wait time may not be as important of metric for the condition this paper is measuring/improving. Job wait time is influenced by the length of a queue, with high underestimation (more backfilling opportunities) the queue is shorter in the short run, but more jobs are being handled because many have to be resubmitted. This does not take into account this factor.</p>
+
+<p>CODES (Codesign of Multi Layer Exascale Storage Architecture) is a simulator that takes into account the network architecture/node structure and it focuses on the communication overhead by having the MPI trace. CODES improves it&rsquo;s accuracy by utilizing the ROSS scheduler which uses a combination of conservative and optimistic scheduling ultimately reducing the state saving overhead. The paper <a href="http://www.mcs.anl.gov/publication/enabling-parallel-simulation-large-scale-hpc-network-systems">Enabling Parallel Simulation of Large-Scale HPC Network Systems</a> says that HPC applications most frequently use nearest neighbor and local communication patterns.</p>
+
+<p><em>After learning about CODES, I started wondering what the purpose of CQSim would be when we adapt the platform to Dragonfly since CQSim will not be taking MPI traces and whether a full Dragonfly system is optimal for HPC clusters because apps with locally concentrated communication patterns are negatively affected.</em></p>
+
+<h3 id="update-six-9-25-17">Update Six (9-25-17)</h3>
+
+<p>I started learning about CQSim so I read the manual and design reports. I started reading through the code base and I found that there are two versions that seem like they should be used while I develop the next version. CQSim_V13 seems as if it is for development (in Eclipse) because it has a .project file. It also contains elements such as Factory.py which is an additional layer to access modules in a more robust manner which the other version, Cqsim, does not. Another detail I noticed was that the adapt files were set in this version whereas in the Cqsim folder that is not the case.</p>
+
+<p>In Cqsim, some files are outside the folders designated in the online documentation. This leads me to believe that this may be an older version since it is missing Factory and the correct location of files and has duplicates in odd locations. For example, the following files [Filter_job.py~, Filter_job_SWF.py~, SWF_filter.py~, config_n.set~, cqsim_main.py~, cqsim_path.py~, n_config.set~, opt_type_add.py~, optparse_add.py~, read_config.py~] are outside the src folder, some of these have copies within the src folder. Why are these here? Also, within the Cqsim/src directory why are there three different versions of the same file with the file endings .py, .py~, and .pyc. The files with the extentions: .py and .py~ are identical, so why are they there? Also, the parameters for adapt mode are set without adapt mode being set or passed in the first place in this version. This is not the case in Cqsim_V13. As a result, Cqsim backfill does nothing with the adapt para_list which is passed because adapt mode is not set.</p>
+
+<p>Here are some other minor details in Cqsim/src/cqsim_main.py:</p>
+
+<ul>
+<li>module_info_collect is built with two different methods for each, from the parameters themselves being different
+Class_Info_collect.Info_collect (alg_module=module_alg,debug=module_debug)</li>
+</ul>
+
+<p>and from the other verison (V13)
+ module_info_collect = modules.info (avg_inter=[600,3600],debug=module_debug)</p>
+
+<p>Backfill - &lsquo;ad_bf&rsquo; adapt mode is not set
+Start window - &lsquo;ad_win&rsquo; does not exist, however &lsquo;ad_win_para&rsquo; is set
+Basic algorithm - &lsquo;ad_alg_para&rsquo; is set but &lsquo;ad_alg&rsquo; is not set</p>
+
+<p>I ended up going with the Cqsim folder instead of v13 despite my concerns because the most recent person to use it was Xu.</p>
+
+<p>I also went to the STARS conference in Atlanta, Georgia where there were breakout workshops as well as a poster session. The workshops were geared towards increasing underrepresented groups&rsquo; participation in STEM. While I learned many ways to get involved and how to engage underrepresented groups in a different manner in the workshops, I found the poster session more valuable. It connected me to undergraduate and PhD students who are doing research in HPC clusters as well. For example, I met Miss Ghalami, a PhD candidate and she wrote <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7965081">A Parallel Approximation Algorithm for Scheduling Parallel Identical Machines</a>. In this paper, she explores</p>
+
+<p>This was a beneficial experience which provided me the grounds to grow my network. Due to the relaxed environment among peers closer to my age, I found that I gained more knowledge through the poster session, rather than the day-long Chameleon conference in which most of the information went over my head.</p>
+
+<h3 id="update-seven-10-5-17">Update Seven (10-5-17)</h3>
+
+<p>This week I worked to understand plan-based scheduling and simulated annealing in order to implement it in CQSim. For that, I read the following paper: <a href="http://ieeexplore.ieee.org/document/7776518/?reload=true">Exploring Plan-Based Scheduling for Large-Scale Computing Systems</a>. Plan-based scheduling creates permutations of possible execution plans and selects an estimate to the optimal execution plan using simulated annealing. Plan-based scheduling reduces job wait time by 40% and job response time by 30%. A simulated annealing algorithm with a high initial temperature and a slow cooling scheme performs well. To understand simulated annealing, I simply read the Wikipedia article in detail. I learned that the meta-heuristics of simulated annealing may accept a worse neighbor to avoid getting stuck in a local optima, eventually over time this acceptance rate becomes lower. I got the core algorithm coded in C++, I just need to integrate it with CQSim.</p>
+
+<h3 id="update-eight-10-19-17">Update Eight (10-19-17)</h3>
+
+<p>I am working on modifying CQSim to be more efficient focusing on the unnecessary additions such as opening a file object when printing log, node_struc does not need to create a file, and in job_trace, the array should be storing 100-1000 jobs at a time and writing to the result folder/deleting them from the array once it reaches it&rsquo;s limit. I am also working on integrating the plan based scheduling code with CQSim figuring out how to have Python scripts communicate with C++ executables or programs.</p>
+
+<h3 id="update-nine-11-2-17">Update Nine (11-2-17)</h3>
+
+<p>I have shifted my focus to working on the node structure addition, as currently it is just a list of nodes with no sense of structure (dragonfly, torus, etc). I am working on developing a simple mesh network to understand the basics and then eventually moving on to adapting to multiple network architectures. The paper, <a href="http://ieeexplore.ieee.org/document/6968751/">Balancing Job Performance with System Performance via Locality-Aware Scheduling on Torus-Connected Systems</a> briefly talks about solving the problem of processor ordering using a space filling curve like the Hilbert Curve. The rest of the paper explores the concept of window-based job allocation.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy; 2019 This is Arushi Rai
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
