@@ -2,21 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on This is Arushi Rai</title>
-    <link>http://example.org/posts/</link>
+    <link>https://arushirai1.github.io/posts/</link>
     <description>Recent content in Posts on This is Arushi Rai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Dec 2017 14:18:24 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 14:10:21 -0500</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://arushirai1.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Chipy First Post</title>
+      <link>https://arushirai1.github.io/posts/my-first-post/</link>
+      <pubDate>Wed, 18 Sep 2019 14:10:21 -0500</pubDate>
+      
+      <guid>https://arushirai1.github.io/posts/my-first-post/</guid>
+      <description>I joined the Chipy mentorship program in hopes of expanding my Python abilities and learning better methods of doing things.
+The first challenge was figuring out my project and the scope of the issues.</description>
+    </item>
+    
+    <item>
       <title>Hpc Research</title>
-      <link>http://example.org/posts/hpc-research/</link>
+      <link>https://arushirai1.github.io/posts/hpc-research/</link>
       <pubDate>Mon, 18 Dec 2017 14:18:24 -0500</pubDate>
       
-      <guid>http://example.org/posts/hpc-research/</guid>
+      <guid>https://arushirai1.github.io/posts/hpc-research/</guid>
       <description>I have always been interested in learning about cutting edge technologies and enjoy applying logic to solve problems. During the summer and fall of 2017, I learned about high performance computing and modified CQSim, the HPC queue simulator.
 Project Learning and Exploring Cobalt &amp;ndash; the HPC Job Management Suite
 Weekly Updates Update One (7-17-17) I spent this week getting familiar with Cobalt&amp;rsquo;s administrative and user commands. I have almost finished installing the simulation environment on a CentOS 6.</description>
