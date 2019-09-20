@@ -3,13 +3,13 @@ title: "Chipy First Post"
 date: 2019-09-18T14:10:21-05:00
 draft: false
 ---
-I joined the Chipy mentorship program in hopes of expanding my Python abilities and learning better methods of writing Python code. I really wanted meet like-minded people and be in the company of people working towards similar goals.
+I joined the Chipy mentorship program in hopes of expanding my Python abilities and learning better methods of writing Python code. I really wanted to meet like-minded people and be in the company of people working towards similar goals.
 
-The first challenge was figuring out my project and the scope of it. I have been closely studying the food desert crisis in the Southside and the abundance of fast food and dearth of fresh produce. One could blame a multitude of factors like the profit incetivized grocery stores, racism, or simply a lack of demand. Regardless, there is a need for innovative solutions in this area because everyone deserves the right to lead a healthy life and Americans need to come together to solve this problem.
+The first challenge was figuring out my project and the scope of it. I have been closely studying the food desert crisis in the Southside and the abundance of fast food and dearth of fresh produce. One could blame a multitude of factors like the profit incentivized grocery stores, racism, or simply a lack of demand. Regardless, there is a need for innovative solutions in this area because everyone deserves the right to lead a healthy life and Americans need to come together to solve this problem.
 
 But, how do you raise awareness about this issue and the intricacies of its trappings? It's very hard to gather that from looking at shaded areas on a map. While there are existing mapping tools which portray the food desert crisis, I want to build on top of this and represent the information in another manner to raise awareness about the cause. 
 
-My first goal is to learn the Python + Flask framework to display a map which has shaded food desert regions. There are a few immediate challenges regarding retrieving the data. But, as I learned this is the crux of most data scientists.
+My first goal is to learn the Python + Flask framework to display a map which has shaded food desert regions. There are a few immediate challenges regarding retrieving the data. But, as I learned this is the crux of data science.
 
 If I have time, I want to transform this into game simulation which gets players to "face" constraints like money, hunger, energy level, etc. This is a great way to build empathy but also get players thinking in the position of these affected individuals and understand the pain points.
 
