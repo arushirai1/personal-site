@@ -60,3 +60,5 @@ A quote that stuck out to me while researching was that “Great tools are never
 
 Unfortunately, I didn't get the chance to reach out to newspapers and other media that Ray so helpfully recommended to me, so that's a definite next step.
 
+Thank you to Chipy for this mentorship program, I already love all the people I've met and am inspired by how much love they put into coding as a hobby.
+
