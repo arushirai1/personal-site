@@ -16,7 +16,7 @@ If I have time, I want to transform this into game simulation which gets players
 OK, so you understand where I am coming from. Here are some pressing questions answered:
 
 ### 1. What is a food desert?
-Food Desert means that a region that has limited access to fresh produce due to a) lack of grocery stores and b) limited public transport accessibility/walkability.
+Food Desert is a region that has limited access to fresh produce due to a) lack of grocery stores and b) limited public transport accessibility/walkability.
 
 ### 2. What data do I need?
 a. Grocery data (Baseline) from PoI Google Maps or Retail Food License data
