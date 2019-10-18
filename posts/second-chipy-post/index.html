@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>i am arushi  | Second Chipy Post</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/personal-site/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Second Chipy Post" />
+<meta property="og:description" content="Link to Github Link to Heroku Website
+I first started off by finding another dataset with grocery stores in Chicago because the first one was not all of the grocery stores. Then, I used Grocery Stores - 2013, however, this has convinience stores and liquor stores counting as Grocery stores. After searching for more, I decided to settle on this dataset for now since I needed to start coding. My first goal was loading the dataset as markers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arushirai1.github.io/personal-site/posts/second-chipy-post/" />
+<meta property="article:published_time" content="2019-10-17T17:30:41-05:00" />
+<meta property="article:modified_time" content="2019-10-17T17:30:41-05:00" />
+<meta itemprop="name" content="Second Chipy Post">
+<meta itemprop="description" content="Link to Github Link to Heroku Website
+I first started off by finding another dataset with grocery stores in Chicago because the first one was not all of the grocery stores. Then, I used Grocery Stores - 2013, however, this has convinience stores and liquor stores counting as Grocery stores. After searching for more, I decided to settle on this dataset for now since I needed to start coding. My first goal was loading the dataset as markers.">
+
+
+<meta itemprop="datePublished" content="2019-10-17T17:30:41-05:00" />
+<meta itemprop="dateModified" content="2019-10-17T17:30:41-05:00" />
+<meta itemprop="wordCount" content="824">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Second Chipy Post"/>
+<meta name="twitter:description" content="Link to Github Link to Heroku Website
+I first started off by finding another dataset with grocery stores in Chicago because the first one was not all of the grocery stores. Then, I used Grocery Stores - 2013, however, this has convinience stores and liquor stores counting as Grocery stores. After searching for more, I decided to settle on this dataset for now since I needed to start coding. My first goal was loading the dataset as markers."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://arushirai1.github.io/personal-site" class="f3 fw2 hover-white no-underline white-90 dib">
+      i am arushi
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Second Chipy Post</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-17T17:30:41-05:00">October 17, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><a href="https://github.com/arushirai1/food-squirrel/tree/run-flask/app">Link to Github</a>
+<a href="https://food-squirrel-test.herokuapp.com/">Link to Heroku Website</a></p>
+
+<p>I first started off by finding another dataset with grocery stores in Chicago because the first one was not all of the grocery stores. Then, I used <a href="https://data.cityofchicago.org/Community-Economic-Development/Grocery-Stores-2013/53t8-wyrc">Grocery Stores - 2013</a>, however, this has convinience stores and liquor stores counting as Grocery stores. After searching for more, I decided to settle on this dataset for now since I needed to start coding. My first goal was loading the dataset as markers. The first issue I had was with the CSV file and I was having trouble loading it. I later found that the attributes are case-sensitive.</p>
+
+<p>Another problem I&rsquo;m having is that zoning codes are incredibly complex and it&rsquo;s hard to determine what is residential and what isn&rsquo;t. This is crucial to determining whether a region is a food desert due to a lack of food access or if it&rsquo;s because it&rsquo;s not a residential area.</p>
+
+<p>After meeting with my mentor, Kevin Nasto, I learned about the Model-View-Controller (MVC) paradigm in web development and about using <a href="https://pandas.pydata.org/">pandas</a> to manipulate the dataset instead of using Numpy.</p>
+
+<p>Originally, I was iterating the dataset like this:</p>
+
+<pre><code class="language-python">    for item in range(data.shape[0]):
+</code></pre>
+
+<p>This is me converting syntax from other languages. But this is more pythonic:</p>
+
+<pre><code class="language-python">    for neighborhood in boundaries_df.iterrows():
+</code></pre>
+
+<p>This is what makes Python so fun!</p>
+
+<p>Pandas also has functionality that makes it simple to explore and understand the dataset. After, using Pandas I realized my initial use of Numpy for this case was completely wrong. Numpy is for storing and manipulating numerical values, where as the Pandas Dataframe is for all datatypes. Not only that, it provides functionality for making changes to the dataset, in other words, &ldquo;clean&rdquo; it and also provide statistical information.</p>
+
+<p>Since I am working with geodata, it made more sense to use <a href="https://geopandas.readthedocs.io/en/latest/">Geopandas</a>. This library is built on top of Pandas and allows you to manipulate and query geodata (location, regions, etc)! It also has functionality to read from a GeoJson file which is a file format that store geodata as geometries. First, I needed to convert the dataframe&rsquo;s locations as points in the geometry column. Geopandas already has this built in functionality! See below:</p>
+
+<pre><code class="language-python">    import pandas as pd
+    import geopandas as gpd
+    data = pd.read_csv(filepath)
+    data = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy
+                            (data.LATITUDE, data.LONGITUDE))
+</code></pre>
+
+<p>I want to tackle the food desert calculations in a systemic way by neighborhood. I pulled the neighborhood data from OpenData as well. I also needed to join the grocery data and neighborhood data in some way. However, I&rsquo;m working with spatial data so this isn&rsquo;t simple as a set join. But, worry not&hellip; Geopandas has a solution! It has this really cool functionality of spatial joins where you can perform an operation like &ldquo;within&rdquo; to join. This would check whether the point is within the neighborhood. This resulted in getting zero elements, so I&rsquo;m still debugging. I believe this may be because I would need to do a projection into world coordinates before applying this spatial join.</p>
+
+<pre><code class="language-python">    data_and_nbhood = gpd.sjoin(data, boundaries_df, op=&quot;within&quot;)
+</code></pre>
+
+<p>Logically, this operation sounds very computationally intensive. My dataset is relatively small, so I determined that it is not that significant. However, I researched that there are tools like dask-geopandas which do these operations in parallel.</p>
+
+<p>I also learned that Pandas has a feature to label columns as categorical. This means that the data values can take on a fixed set of values. This distinction will be useful later when performing aggregations on the dataset.</p>
+
+<pre><code>    boundaries_df['neighborhood'] = boundaries_df.sec_neigh.astype('category')
+
+</code></pre>
+
+<p>Great now I can view boundaries and my grocery store markers:</p>
+
+<p><img src="/personal-site/neighborhoods.png" alt="Example image" /></p>
+
+<p>My next step would be to get the join to work and aggregate data for each neighborhood.</p>
+
+<p>At some point I decided my website looked weird if it just had a giant map without any description or header. Now, I don&rsquo;t know much frontend, so manipulating flask and html were a bit difficult since I was learning two things at once. Initially, the mistake I made was not storing the landing page in the right folder. <a href="https://jinja.palletsprojects.com/en/2.10.x/">jinja2</a> is a web templating library. I believe this is to avoid repeated code.</p>
+
+<p>Here&rsquo;s a snippet of how templating works:</p>
+
+<pre><code>{%extends &quot;home.html&quot;%}
+{% block body %}
+    {% include &quot;map.html&quot;%}
+{% endblock %}
+</code></pre>
+
+<p>This line {% block body %} allows me to insert a snippet into home.html. I&rsquo;m still learning about this functionality, so hopefully I get more familiar with it.</p>
+
+<p>This past month, I had a lot of fun with Python and I certainly appreciate the quirks of the language. I&rsquo;m starting to understand why it&rsquo;s such a favorite. It&rsquo;s already made coding a lot more enjoyable for me, and as a mentor/teacher to youth I always look for fun ways of teaching concepts. With Python, I think there can be an intersection of teaching math and science, as well as programming and even creating art. Trust me, I spent a lot of time reading the geopandas docs and there are cool visualizations you can make.</p>
+
+<p><img src="/personal-site/logo.png" alt="Example image" /></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://arushirai1.github.io/personal-site" >
+    &copy; 2019 i am arushi
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/personal-site/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
