@@ -12,21 +12,21 @@ This blog post, I’m breaking down the methodology/theory of determining a food
 ![Example image](/personal-site/theory.png)
 
 
-Spatial analysis is the analysis of “topological, geometric, or geographic properties.” Another important piece of information is that spatial analysis consists of many approximations due to the complex nature of space and the physical earth. This is known as spatial heterogeneity which is the “distinct uniqueness of each region.”
+**Spatial analysis** is the analysis of “topological, geometric, or geographic properties.” Another important piece of information is that spatial analysis consists of many approximations due to the complex nature of space and the physical earth. This is known as **spatial heterogeneity** which is the “distinct uniqueness of each region.”
 
-For my project I will be using spatial sampling. This is using observations in one region to “predict” the value of another as an approximation technique. Classifying food deserts means whether a region has accessible grocery options. To reduce a region to a point means that there would be almost an infinite amount of calculations. To approximate I will be dividing a region (going by each neighborhood) into grid cells that are ½ km^2 and calculating distances from the centroid of that grid. The challenges of this approach will be discussed in a subsequent paragraph.
+For my project I will be using **spatial sampling**. This is using observations in one region to “predict” the value of another as an approximation technique. Classifying food deserts means whether a region has accessible grocery options. To reduce a region to a point means that there would be almost an infinite amount of calculations. To approximate I will be dividing a region (going by each neighborhood) into grid cells that are ½ km^2 and calculating distances from the centroid of that grid. The challenges of this approach will be discussed in a subsequent paragraph.
 
-After the grids have been designated a health score from 1-10, which for now a ten is having one grocery store within a 0.5 mile distance. I will be using Manhattan distance over a Euclidean distance because you can’t necessarily travel in a straight line to get somewhere because of the road network. After scores have been calculated for each grid cell, we will use aggregation with dissolve so that before we zoom we can judge the health of a specific neighborhood. This method is built in to the GeoPandas Library.
+After the grids have been designated a health score from 1-10, which for now a ten is having one grocery store within a 0.5 mile distance. I will be using Manhattan distance over a Euclidean distance because you can’t necessarily travel in a straight line to get somewhere because of the road network. After scores have been calculated for each grid cell, we will use **aggregation with dissolve** so that before we zoom we can judge the health of a specific neighborhood. This method is built in to the GeoPandas Library.
 
 Before I started coding, I knew there was a minor kink in the theory for grids by neighborhood. If neighborhoods look like this:
 
 ![Example image](/personal-site/neighborhood-grid.png)
 
-Then after a grid is approximated, some of those grids are cut off by the boundary of the neighborhood. To work around this geopandas has a set overlay method where you can do a set intersect between two polygon series. From here, it becomes a bit easier because there is an existing method to calculate the centroid of any GeoPandas polygon which can be used to calculate the distance between grocery stores. 
+Then after a grid is approximated, some of those grids are cut off by the boundary of the neighborhood. To work around this Geopandas has a **set overlay** method where you can do a set intersect between two polygon series. From here, it becomes a bit easier because there is an existing method to calculate the **centroid of any GeoPandas polygon** which can be used to calculate the distance between grocery stores. 
 
 ## Code
 
-pdb is Python’s debugger. My mentor, Kevin taught me how to use it and it has now become an essential in my coding toolkit.
+**pdb** is Python’s debugger. My mentor, Kevin taught me how to use it and it has now become an essential in my coding toolkit.
 
 ```python
 import pdb
