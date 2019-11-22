@@ -6,10 +6,20 @@
     <description>Recent content on i am arushi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 17:30:41 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2019 22:46:03 -0600</lastBuildDate>
     
 	<atom:link href="https://arushirai1.github.io/personal-site/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Third Chipy Post</title>
+      <link>https://arushirai1.github.io/personal-site/posts/third-chipy-post/</link>
+      <pubDate>Thu, 21 Nov 2019 22:46:03 -0600</pubDate>
+      
+      <guid>https://arushirai1.github.io/personal-site/posts/third-chipy-post/</guid>
+      <description>Last post I left off on getting the neighborhood regions and grocery markers on the map. This month was largely spent on getting the data set up for food desert calculations. I spent a bit of time on the theoretical aspect to create the algorithm. However, in practice doing a step like projections to XY coordinates took a long time.
+This blog post, I’m breaking down the methodology/theory of determining a food desert region and then I will be discussing the progress in my application.</description>
+    </item>
     
     <item>
       <title>Second Chipy Post</title>

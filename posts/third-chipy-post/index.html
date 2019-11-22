@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>i am arushi  | Third Chipy Post</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/personal-site/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Third Chipy Post" />
+<meta property="og:description" content="Last post I left off on getting the neighborhood regions and grocery markers on the map. This month was largely spent on getting the data set up for food desert calculations. I spent a bit of time on the theoretical aspect to create the algorithm. However, in practice doing a step like projections to XY coordinates took a long time.
+This blog post, I’m breaking down the methodology/theory of determining a food desert region and then I will be discussing the progress in my application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arushirai1.github.io/personal-site/posts/third-chipy-post/" />
+<meta property="article:published_time" content="2019-11-21T22:46:03-06:00" />
+<meta property="article:modified_time" content="2019-11-21T22:46:03-06:00" />
+<meta itemprop="name" content="Third Chipy Post">
+<meta itemprop="description" content="Last post I left off on getting the neighborhood regions and grocery markers on the map. This month was largely spent on getting the data set up for food desert calculations. I spent a bit of time on the theoretical aspect to create the algorithm. However, in practice doing a step like projections to XY coordinates took a long time.
+This blog post, I’m breaking down the methodology/theory of determining a food desert region and then I will be discussing the progress in my application.">
+
+
+<meta itemprop="datePublished" content="2019-11-21T22:46:03-06:00" />
+<meta itemprop="dateModified" content="2019-11-21T22:46:03-06:00" />
+<meta itemprop="wordCount" content="1031">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Third Chipy Post"/>
+<meta name="twitter:description" content="Last post I left off on getting the neighborhood regions and grocery markers on the map. This month was largely spent on getting the data set up for food desert calculations. I spent a bit of time on the theoretical aspect to create the algorithm. However, in practice doing a step like projections to XY coordinates took a long time.
+This blog post, I’m breaking down the methodology/theory of determining a food desert region and then I will be discussing the progress in my application."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://arushirai1.github.io/personal-site" class="f3 fw2 hover-white no-underline white-90 dib">
+      i am arushi
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Third Chipy Post</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-21T22:46:03-06:00">November 21, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>Last post I left off on getting the neighborhood regions and grocery markers on the map. This month was largely spent on getting the data set up for food desert calculations. I spent a bit of time on the theoretical aspect to create the algorithm. However, in practice doing a step like projections to XY coordinates took a long time.</p>
+
+<p>This blog post, I’m breaking down the methodology/theory of determining a food desert region and then I will be discussing the progress in my application.</p>
+
+<h2 id="theory">Theory</h2>
+
+<p><img src="/personal-site/theory.png" alt="Example image" /></p>
+
+<p>Spatial analysis is the analysis of “topological, geometric, or geographic properties.” Another important piece of information is that spatial analysis consists of many approximations due to the complex nature of space and the physical earth. This is known as spatial heterogeneity which is the “distinct uniqueness of each region.”</p>
+
+<p>For my project I will be using spatial sampling. This is using observations in one region to “predict” the value of another as an approximation technique. Classifying food deserts means whether a region has accessible grocery options. To reduce a region to a point means that there would be almost an infinite amount of calculations. To approximate I will be dividing a region (going by each neighborhood) into grid cells that are ½ km^2 and calculating distances from the centroid of that grid. The challenges of this approach will be discussed in a subsequent paragraph.</p>
+
+<p>After the grids have been designated a health score from 1-10, which for now a ten is having one grocery store within a 0.5 mile distance. I will be using Manhattan distance over a Euclidean distance because you can’t necessarily travel in a straight line to get somewhere because of the road network. After scores have been calculated for each grid cell, we will use aggregation with dissolve so that before we zoom we can judge the health of a specific neighborhood. This method is built in to the GeoPandas Library.</p>
+
+<p>Before I started coding, I knew there was a minor kink in the theory for grids by neighborhood. If neighborhoods look like this:</p>
+
+<p><img src="/personal-site/neighborhood-grid.png" alt="Example image" /></p>
+
+<p>Then after a grid is approximated, some of those grids are cut off by the boundary of the neighborhood. To work around this geopandas has a set overlay method where you can do a set intersect between two polygon series. From here, it becomes a bit easier because there is an existing method to calculate the centroid of any GeoPandas polygon which can be used to calculate the distance between grocery stores.</p>
+
+<h2 id="code">Code</h2>
+
+<p>pdb is Python’s debugger. My mentor, Kevin taught me how to use it and it has now become an essential in my coding toolkit.</p>
+
+<pre><code class="language-python">import pdb
+# lines of code
+pdb.set_trace()
+# problematic code
+</code></pre>
+
+<p>This can allow you to either step through code or do data exploration and wrangle with what you are working with. This helped debug why a spatial join between the neighborhood dataframe and grocery stores dataframe was not working.</p>
+
+<pre><code class="language-python">data = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data.LATITUDE, data.LONGITUDE))
+
+</code></pre>
+
+<p>Looking at the neighborhood data, I realized that the Longitude came before Latitude. However, it makes sense because the Longitude is technically the horizontal access, hence the X-coordinate and the Latitude is the Y-coordinate. So switching that data allowed the spatial join to work as expected!</p>
+
+<p>In an effort to not make this post too long, I want to explain how I used approximations for the coordinate projections. One of the major struggles I had was trying to code my own transformation and scouring the Internet to find something that converts latitude and longitude points to cartesian without having a height/altitude coordinate. After spending too much time researching, I decided to just try things out. So, I installed geo2cart which does the coordinate projections from geodetic data to cartesian coordinates. The first mistake I made was accidentally running Python 2 instead of Python 3.</p>
+
+<p><img src="/personal-site/geo-import.png" alt="Example image" /></p>
+
+<p>Moving past that I experimented with values for the altitude. When I put the Earth’s approximate radius in meters it calculated the right distance. I realized I can sacrifice on accuracy for the projections because this is simply to form the grid cells, which means that the cartesian coordinates need to be in the right units (m -&gt; km) and the placement relative to each other. This was an important lesson in just getting my hands dirty rather than wading through theory and not getting much done. Here is a screenshot of experimenting with different values of altitude and figuring out what the units need to be.</p>
+
+<p><img src="/personal-site/geo2cart.png" alt="Example image" /></p>
+
+<h2 id="the-final-stretch-of-the-chipy-mentorship-program">The Final Stretch of the ChiPy Mentorship Program</h2>
+
+<p>I can’t believe that there are only 3 more weeks left in the mentorship program. Over the last couple of months I’ve gotten much more comfortable with Python and it’s powerful libraries like Pandas. Through our different project nights, I’ve gotten see how object oriented programming, data science, and web development is done in Python. I’ve honestly never done such a wide variety of applications in such a short period of time. Since I am a college student, I am taking classes like Urban Planning Analysis and Probability/Statistics. In both of these classes, playing around in jupyter notebook allowed me to experiment and visualize different concepts.</p>
+
+<p>I also got the chance to participate in the Dare Mighty Things hackathon last month where my team and I won the Best Voice Experience for Ulta Beauty using Google Cloud prize. This is the first hackathon I’ve won and where I felt confident in contributing with my team. Using Python to prototype an application and having a demo prepared in less than 24 hours means that we all had to contribute to the fullest of our abilities. I have never been able to accomplish this in Java or C++. In another case, I am also building a basic application with my Database Systems group using Flask and I was able to set up the backend+PostgreSQL for all three of our systems. Through the different projects I have been applying myself in and the mentorship I’ve received, it is becoming easier to spot errors in application and faster to fix them. I am immensely grateful for the mentorship and guidance Kevin has provided, and ChiPy for this opportunity to push myself.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://arushirai1.github.io/personal-site" >
+    &copy; 2019 i am arushi
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/personal-site/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
